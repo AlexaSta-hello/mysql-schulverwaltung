@@ -28,3 +28,17 @@ INSERT INTO schueler
             (15, "Nils", "Klein", "nils@mail.de", "2010-10-08", 9),
             (16, "Yannick", "Siggi", "yannick@mail.de", "2011-08-29", 8),
             (17, "Daniel", "Gold", "daniel@mail.de", "2011-12-16", 8);
+
+
+// Alle Schüler der 10. Klasse:
+
+SELECT * 
+FROM schueler 
+WHERE klasse = 10; 
+
+
+// Mail updaten
+
+UPDATE schueler
+SET email = "klein@mail.de"
+WHERE schueler_id = 6;
