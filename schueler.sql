@@ -1,14 +1,21 @@
 CREATE TABLE Schüler (
-    schueler_id INT(11) NOT NULL AUTO_INCREMENT,
+    schueler_id INT(11) NOT NULL,
     vorname VARCHAR(50) NOT NULL,
     nachname VARCHAR(50) NOT NULL,
     email VARCHAR(255),
     geburtsdatum DATE NOT NULL,
     klasse TINYINT(2) NOT NULL,
-    PRIMARY key(schueler_id)
+    PRIMARY KEY(schueler_id)
 );
 
 RENAME TABLE Schüler TO schueler;
+
+ALTER TABLE schueler
+    MODIFY schueler_id INT(11) AUTO_INCREMENT;
+
+Wir könnten auch bei 1000 beginnen zu incrementieren:
+ALTER TABLE schueler
+    AUTO_INCREMENT = 1000;
 
 
 
@@ -29,6 +36,9 @@ INSERT INTO schueler
             (15, "Nils", "Klein", "nils@mail.de", "2010-10-08", 9),
             (16, "Yannick", "Siggi", "yannick@mail.de", "2011-08-29", 8),
             (17, "Daniel", "Gold", "daniel@mail.de", "2011-12-16", 8);
+
+INSERT INTO schueler (vorname, nachname, email, geburtsdatum, klasse)
+    VALUES  ("Betty", "Schmidt", "betty@mail.de", "2012-10-02", 7);
 
 
 // Alle Schüler der 10. Klasse anzeigen:

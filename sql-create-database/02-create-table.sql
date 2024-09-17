@@ -1,5 +1,5 @@
 CREATE TABLE users (
-	id INT(11) NOT NULL AUTO_INCREMENT,
+	user_id INT(11) NOT NULL AUTO_INCREMENT,
     username VARCHAR(30) NOT NULL,
     pwd VARCHAR(255) NOT NULL,
     email VARCHAR(100) NOT NULL,
@@ -10,13 +10,13 @@ CREATE TABLE users (
 
 
 CREATE TABLE comments (
-	id INT(11) NOT NULL AUTO_INCREMENT,
+	comment_id INT(11) NOT NULL AUTO_INCREMENT,
     username VARCHAR(30) NOT NULL,
     comment_text TEXT NOT NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIME,
-    users_id INT(11),
+    user_id INT(11),
     PRIMARY KEY (id),
-    FOREIGN KEY (users_id) REFERENCES users (id) ON DELETE SET NULL
+    FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE SET NULL
 );
 
 /* es gibt noch:
@@ -51,13 +51,19 @@ CONSTRAINT /*: sind die Parameter hinter einer Spalte, wie z.B. UNIQUE.
 UNIQUE heißt, dass ein VALUE nur einmal vorkommen kann.*/
 
 /*Falls wir vergessen haben einen CONSTRAINT anzugeben, machen wir das so:*/
-ALTER TABLE schueler
+ALTER TABLE users
 ADD CONSTRAINT 
-UNIQUE (schueler_id);
+UNIQUE (id);
+oder:
+PRIMARY KEY(id)
+/* FOREIGN KEY nachträglich hinzufügen wäre: */
+ALTER TABLE comments
+ADD CONSTRAINT fk_user_id
+FOREIGN KEY(user_id) REFERENCES users(user_id);
 
 oder:
-Alter TABLE schueler
-MODIFY schueler_id INT(11) UNIQUE; 
+Alter TABLE users
+MODIFY id INT(11) UNIQUE; 
 
 
 /* --------------------------
