@@ -8,7 +8,8 @@ INSERT INTO comments (username, comment_text, users_id)
 
 
 /* Daten bearbeiten*/
-UPDATE users SET username = 'Yannick123', pwd = 'yan!cool' 
+UPDATE users 
+    SET username = 'Yannick123', pwd = 'yan!cool' 
     WHERE id = 2; 
 /* AND / OR kann man auch nach anhängen.
     Also z.B. WHERE id = 2 AND username = 'Alex_S.'*/
@@ -33,7 +34,7 @@ SELECT * FROM comments WHERE users_id = 3; /* alles auswählen */
 SELECT * FROM users INNER JOIN comments 
     ON users.id = comments.users_id;
 
-/*oder spezifische Datebn*/
+/*oder spezifische Daten*/
 SELECT users.username, comments.comment_text, comments.created_at 
     FROM users INNER JOIN comments ON users.id = comments.users_id;
 
@@ -43,5 +44,22 @@ SELECT * FROM users LEFT JOIN comments
 
 SELECT * FROM users RIGHT JOIN comments 
     ON users.id = comments.users_id;
+
+/* wir könnten Zeit VALUES einfuügen mit:*/
+CURRENT_DATE()
+CURRENT_TIME()
+NOW()
+
+/* Automatisches Speichern ein/aus*/
+// Damit wir nicht aus versehen falsche eingaben speichern oder Daten löschen, 
+könnten wir anfangs das schreiben:
+SET AUTOCOMMIT = OFF; // damit wird automatisches Speichern nach Ausführung verhindert.
+dann löschen wir z.b. etwas. Man kann es undo-en mit:
+ROLLBACK;
+-> wir müssen dann extra händisch Änderungen speichern mit:
+COMMIT; am Ende
+
+
+
 
 
