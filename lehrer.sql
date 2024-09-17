@@ -21,3 +21,11 @@ INSERT INTO lehrer
 
 
 SELECT * FROM lehrer;
+
+SELECT * FROM lehrer INNER JOIN kurs
+ON lehrer.lehrer_id = kurs.lehrer_id;
+
+oder spezifischer:
+
+SELECT lehrer.vorname, lehrer.nachname, kurs.titel, kurs.semester
+FROM lehrer INNER JOIN kurs ON lehrer.lehrer_id = kurs.lehrer_id
