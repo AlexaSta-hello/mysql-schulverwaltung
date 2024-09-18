@@ -57,7 +57,11 @@ SELECT * FROM schueler WHERE schueler_id = 6;
 UPDATE schueler
 SET email = "klein@mail.de" -> also ohne WHERE
 
-// Löschen geht mit:
+// 11. Löschen geht mit:
 DELETE FROM schueler 
-WHERE schueler_id = 4; 
+WHERE klasse = 5; 
+
+// 14. Alle Schüler, die älter als 16 sind:
+SELECT * FROM schueler
+WHERE geburtsdatum <= "2007-09-18";
 

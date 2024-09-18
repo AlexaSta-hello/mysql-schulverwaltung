@@ -1,0 +1,10 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"Schulverwaltung"},
+{"type":"table","name":"schueler","database":"Schulverwaltung","data":
+[
+{"schueler_id":"3","vorname":"Jakob","nachname":"Staski","email":"jakob@mail.de","geburtsdatum":"2006-12-06","klasse":"13"},
+{"schueler_id":"12","vorname":"Lena","nachname":"König","email":"lena@mail.de","geburtsdatum":"2007-02-06","klasse":"13"}
+]
+}
+]

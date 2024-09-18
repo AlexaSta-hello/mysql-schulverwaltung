@@ -45,3 +45,12 @@ INSERT INTO kurs
 
 SELECT titel, lehrer_id 
 FROM kurs;
+
+9. / 10. Alle Kurse mit Lehrern plus Lehrer ohne Kurse:
+SELECT kurs.titel, kurs.semester, lehrer.vorname, lehrer.nachname
+FROM kurs RIGHT JOIN lehrer ON kurs.lehrer_id = lehrer.lehrer_id;
+
+12. Alle Kurse der 12 Klasse
+SELECT * FROM kurs
+WHERE semester = 12;
+
