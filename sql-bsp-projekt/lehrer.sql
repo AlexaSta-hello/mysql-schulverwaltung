@@ -19,7 +19,16 @@ INSERT INTO lehrer
             (6, "Michael", "Ende", "ende@mail.com", "1983-05-21"),
             (7, "Martina", "Helmholt", "helmholz@mail.com", "1963-07-30");
 
+ALTER TABLE lehrer
+ADD stundenlohn DECIMAL(3, 2); //das war falsch. es bedeutet insgesamt 3 zeichen und davon 2 hinter dem komma.
 
+ALTER TABLE lehrer
+MODIFY stundenlohn DECIMAL(5, 2);
+
+
+UPDATE lehrer
+SET stundenlohn = 40
+WHERE lehrer_id = 1; // usw.
 
 
 SELECT * FROM lehrer;
